@@ -91,5 +91,6 @@ public class MovementComponent : MonoBehaviour
         if (!other.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
 
         playerController.isJumping = false;
+        playeranimator.SetBool(isJumpingHash,false);
     }
 }
