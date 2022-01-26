@@ -27,7 +27,39 @@
                     "id": "eca620b3-896a-463a-a386-60dc7bd97e2e",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "a412eb80-0836-4d14-b426-319c180d5281",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "3069ccb9-47ad-44f1-a73e-f7f0813d66fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "59565890-274e-43f6-a84b-91c7f3bdc40d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "7ee3ff07-8a87-4989-85c5-9fcfa93d0bab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -107,6 +139,50 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f01e0c27-149a-4592-8019-bb1fecc8cab6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce9d03ca-e8ed-4e6a-a10f-08c642f312d6",
+                    "path": "<Keyboard>/r",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c2cc609-e759-4c15-a58c-ef85aa15adf6",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5742619-b057-4b8f-8447-d257fd9aa023",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
