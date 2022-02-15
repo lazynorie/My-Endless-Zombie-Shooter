@@ -19,10 +19,13 @@ public class AK47Component : WeaponComponent
                 Vector3 hitDirection = hit.point - mainCamera.transform.position;
                 Debug.DrawRay(mainCamera.transform.position, hitDirection.normalized * weaponStats.fireDistance, Color.red,1);
             }
-            else if (weaponStats.bulletInClip <= 0)
-            {
-                //we can trigger a reload here
-            }
+            
+        }
+        else if (weaponStats.bulletInClip <= 0)
+        {
+            //we can trigger a reload here
+            Debug.Log("Reload now!");
+            weaponHolder.StartReload(); 
         }
     }
 }

@@ -87,9 +87,12 @@ MonoBehaviour:
     fireRate: 0.25
     fireDistance: 500
     repeating: 1
+    totalBullets: 500
     weaponHitLayer:
       serializedVersion: 2
       m_Bits: 4294967295
+  isFiring: 0
+  isReloading: 0
 --- !u!1001 &8137539916924052412
 PrefabInstance:
   m_ObjectHideFlags: 0

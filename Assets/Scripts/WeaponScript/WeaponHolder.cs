@@ -51,18 +51,11 @@ public class WeaponHolder : MonoBehaviour
         }
         
     }
-
-    public void OnReload(InputValue value)
-    {
-        playerController.isReloading = value.isPressed;
-        playeranimator.SetBool(isReloadHash,playerController.isReloading);
-        
-    }
-
+    
     public void OnFire(InputValue value)
     {
         firingPressed = value.isPressed;
-        playerController.isFiring = value.isPressed;
+        //playerController.isFiring = value.isPressed;
         if (firingPressed)
         {
             StartFiring();
@@ -76,9 +69,14 @@ public class WeaponHolder : MonoBehaviour
 
     void StartFiring()
     {
-        if (equippedWeapon.weaponStats.bulletInClip <= 0) return;
+        if (equippedWeapon.weaponStats.bulletInClip <= 0)
+        {
+            StartReload();
+            return;
+        }
         //playeranimator.SetBool(isFiringHash,playerController.isFiring);
         playeranimator.SetBool(isFiringHash, true);
+        playerController.isFiring = true;
         equippedWeapon.StartFiringWeapon();
     }
 
@@ -88,9 +86,45 @@ public class WeaponHolder : MonoBehaviour
         playerController.isFiring = false;
         equippedWeapon.StopFiringWeapon();
     }
-
+    
+    public void OnReload(InputValue value)
+    {
+        playerController.isReloading = value.isPressed;
+        StartReload();
+    }
+    
     public void StartReload()
     {
+        if (playerController.isFiring)
+        {
+            StopFiring();
+        }
+        //don't reload if there's not enough bullets
+        if (equippedWeapon.weaponStats.totalBullets <=0)
+        {
+            return;
+        }
+        //refill ammo
+        equippedWeapon.StartReloading();
+        playerController.isReloading = true;
+        playeranimator.SetBool(isReloadHash,true);
+        //playeranimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
         
+        InvokeRepeating(nameof(StopReloading),0,0.1f);
+    }
+
+    public void StopReloading()
+    {
+        if (playeranimator.GetBool(isReloadHash)) return;
+
+        playerController.isReloading = false;
+        playeranimator.SetBool(isReloadHash,false);
+        equippedWeapon.StopReloading();
+        CancelInvoke(nameof(StopReloading));
+
+        if (firingPressed)
+        {
+            StartFiring();
+        }
     }
 }
