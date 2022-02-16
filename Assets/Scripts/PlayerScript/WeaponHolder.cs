@@ -38,6 +38,8 @@ public class WeaponHolder : MonoBehaviour
         GripSocketLocation = equippedWeapon.gripLocation;
         
         equippedWeapon.Initialize(this);
+        
+        PlayerEvents.InvokeOnWeaponEquipped(equippedWeapon);
     }
 
     // Update is called once per frame
