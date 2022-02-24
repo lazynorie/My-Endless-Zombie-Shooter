@@ -113,11 +113,11 @@ public class MovementComponent : MonoBehaviour
         playeranimator.SetFloat(verticalAimHash, val);
 
 
-        if (angle1 > 180 && angle < 300)
+        if (angle1 > 180 && angle1 < 300)
         {
-            angles.x = 300;
+            angles1.x = 300;
         }
-        else if (angle < 180 && angle > 70)
+        else if (angle1 < 180 && angle1 > 70)
         {
             angles1.x = 70;
         }
@@ -214,6 +214,4 @@ public class MovementComponent : MonoBehaviour
         }
         return false;
     }
-    
-    
 }

@@ -60,6 +60,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2),Hold"
+                },
+                {
+                    "name": "SwitchToAK",
+                    "type": "Button",
+                    "id": "04d9157a-9392-4ec9-aef3-1fd3933840bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2),Hold"
+                },
+                {
+                    "name": "SwitchToShotGun",
+                    "type": "Button",
+                    "id": "4c5f8ab6-04cd-4b71-821f-df9646c292ef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2),Hold"
                 }
             ],
             "bindings": [
@@ -181,6 +197,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f9940274-13b4-4e19-81ea-3fab59592090",
+                    "path": "<Keyboard>/1",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToAK",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de7454f1-1874-4501-9086-02b36a0e10ef",
+                    "path": "<Keyboard>/2",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToShotGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

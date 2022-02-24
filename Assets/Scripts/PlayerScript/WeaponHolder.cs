@@ -10,6 +10,8 @@ public class WeaponHolder : MonoBehaviour
     [Header("WeaponToSpawn"), SerializeField]
     private GameObject weaponToSpawn;
 
+    public List<WeaponComponent> weaponlist;
+
     public PlayerController playerController;
     private Animator playeranimator;
 
@@ -43,6 +45,11 @@ public class WeaponHolder : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     private void OnAnimatorIK(int layerIndex)
     {
         
@@ -128,5 +135,10 @@ public class WeaponHolder : MonoBehaviour
         {
             StartFiring();
         }
+    }
+
+    public void SwapWeapon(InputValue inputValue)
+    {
+        print(inputValue);
     }
 }
