@@ -45,20 +45,18 @@ public class WeaponHolder : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         
     }
 
     private void OnAnimatorIK(int layerIndex)
     {
-        
         if (!playerController.isReloading)
         {
             playeranimator.SetIKPositionWeight(AvatarIKGoal.LeftHand,1);
             playeranimator.SetIKPosition(AvatarIKGoal.LeftHand,GripSocketLocation.transform.position);
         }
-        
     }
     
     public void OnFire(InputValue value)
