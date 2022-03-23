@@ -109,7 +109,7 @@ public class MovementComponent : MonoBehaviour
         float aimAngle = followTransform.transform.localEulerAngles.x;
         aimAngle = (aimAngle > 180) ? aimAngle - 360 : aimAngle;
         float val = (aimAngle + offsetToZero) / (range);
-        print(val);
+        //print(val);
         playeranimator.SetFloat(verticalAimHash, val);
 
 
