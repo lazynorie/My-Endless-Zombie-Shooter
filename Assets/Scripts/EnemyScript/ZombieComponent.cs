@@ -18,11 +18,13 @@ public class ZombieComponent : MonoBehaviour
         zombieNavMeshAgent = GetComponent<NavMeshAgent>();
         zombieAnimator = GetComponent<Animator>();
         zombieStateMachine = GetComponent<ZombieStateMachine>();
-        Initialize(followTarget);
     }
 
     private void Start()
     {
+        followTarget = GameObject.FindGameObjectWithTag("Player");
+        //if (!followGameObject) return;
+        Initialize(followTarget);
     }
 
     public void Initialize(GameObject _followTarget)
