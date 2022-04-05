@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour, IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] 
+    private float currentHealth;
+    public float CurrentHealth => currentHealth;
 
+    [SerializeField] 
+    private float maxHealth;
+    public float MaxHealth => maxHealth;
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {
+        currentHealth = maxHealth;
+    }
     // Update is called once per frame
     void Update()
     {
         
     }
-
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
-        throw new System.NotImplementedException();
+        currentHealth -= damage;
+        if (currentHealth<=0)
+        {
+            Destroy();
+        }
     }
-
-    public void Destroy()
+    public virtual void Destroy()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
     }
 }
