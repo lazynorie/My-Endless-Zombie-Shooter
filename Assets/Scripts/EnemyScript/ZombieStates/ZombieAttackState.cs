@@ -9,6 +9,8 @@ public class ZombieAttackState : ZombieStates
 
     int movementZhash = Animator.StringToHash("MovementZ");
     int isAttackingHash = Animator.StringToHash("isAttacking");
+
+    private IDamagable damagebleObject;
     
     public ZombieAttackState(GameObject _followTarget,ZombieComponent zombie, ZombieStateMachine stateMachine) : base(zombie, stateMachine)
     {
@@ -16,6 +18,7 @@ public class ZombieAttackState : ZombieStates
         updateInterval = 2f;
         
         //Set damageble object here, ADD LATER
+        damagebleObject = followTarget.GetComponent<IDamagable>();
     }
     // Start is called before the first frame update
     public override void Start()
@@ -30,6 +33,7 @@ public class ZombieAttackState : ZombieStates
     public override void IntervalUpdate()
     {
         base.IntervalUpdate();
+        damagebleObject?.TakeDamage(ownerZombie.zombieDamage);
         //DEAL DAMAGE EVERY INTERVAL ADD LATER
     }
 
