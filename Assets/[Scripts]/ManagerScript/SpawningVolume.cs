@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawningVolume : MonoBehaviour
 {
@@ -8,10 +10,15 @@ public class SpawningVolume : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider = GetComponent<BoxCollider>();
+        
     }
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        //why do I have to put this in Awake???
+        boxCollider = GetComponent<BoxCollider>();
+    }
+    
 
     public Vector3 GetPositionInBounds()
     {
