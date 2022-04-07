@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[CreateAssetMenu(fileName = "Consumable", menuName = "Item/Consumale", order = 1)]
+public class ConsumableScriptable : ItemScriptable
+{
+    public int effect = 0;
+  
+    public override void UseItem(PlayerController playerController)
+    {
+        //checking to see if player is at max health, then return
+        //heal player with potion
+        SetAmount(amountValue-1);
+        
+        if (amountValue<=0)
+        {
+            DeleteItem(playerController);
+        }
+    }
+}
