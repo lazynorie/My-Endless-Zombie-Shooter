@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public enum WeaponType
@@ -43,13 +44,20 @@ public class WeaponComponent : MonoBehaviour
     [SerializeField] protected ParticleSystem firingEffect;
     
     protected Camera mainCamera;
+
+    protected AudioManager audio;
     // Start is called before the first frame update
 
     private void Awake()
     {
         mainCamera = Camera.main;
     }
-    
+
+    private void Start()
+    {
+        audio = GetComponentInChildren<AudioManager>();
+    }
+
     public void Initialize(WeaponHolder _weaponHolder)
     {
         weaponHolder = _weaponHolder;
@@ -83,6 +91,8 @@ public class WeaponComponent : MonoBehaviour
     protected virtual void FireWeapon()
     {
         weaponStats.bulletInClip--;
+        //play firing audio
+        audio.playAKfireSound();
         //Debug.Log("firing!"+ weaponStats.bulletInClip);
     }
 
@@ -106,6 +116,7 @@ public class WeaponComponent : MonoBehaviour
             firingEffect.Stop();
         }
         
+        audio.playAKReloadSoundClip();
         int bulletToReload = weaponStats.clipSize - weaponStats.totalBullets;
         if (bulletToReload<0)
         {
