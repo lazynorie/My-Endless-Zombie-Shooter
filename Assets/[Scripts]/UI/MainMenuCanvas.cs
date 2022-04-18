@@ -21,4 +21,9 @@ public class MainMenuCanvas : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+    
+    public void OnMainMenuButtonPressed()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
